@@ -1,6 +1,39 @@
 document.addEventListener('DOMContentLoaded', function() {
     loadAnalytics();
     displayKnowledgeBase();
+    // Sidebar toggle logic
+    const sidebar = document.getElementById('sidebar');
+    const toggleBtn = document.getElementById('sidebar-toggle');
+
+    // Optional: overlay
+    let overlay = document.getElementById('sidebar-overlay');
+    if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.id = 'sidebar-overlay';
+        overlay.className = 'hide';
+        document.body.appendChild(overlay);
+    }
+
+    function openSidebar() {
+        sidebar.classList.add('open');
+        overlay.classList.remove('hide');
+        document.body.classList.add('sidebar-open');
+    }
+    function closeSidebar() {
+        sidebar.classList.remove('open');
+        overlay.classList.add('hide');
+        document.body.classList.remove('sidebar-open');
+    }
+
+    toggleBtn.addEventListener('click', function() {
+        if (sidebar.classList.contains('open')) {
+            closeSidebar();
+        } else {
+            openSidebar();
+        }
+    });
+
+    overlay.addEventListener('click', closeSidebar);
 });
 
 function loadAnalytics() {

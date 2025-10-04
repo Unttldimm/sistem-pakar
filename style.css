@@ -380,3 +380,56 @@ td:not(:first-child) {
     margin-top: 10px;
   }
 }
+
+/* Tombol toggle sidebar */
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: 18px;
+  left: 18px;
+  z-index: 1200;
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+}
+
+/* Sidebar responsif */
+@media (max-width: 900px) {
+  #sidebar {
+    position: fixed;
+    left: -260px;
+    top: 0;
+    height: 100vh;
+    z-index: 1100;
+    transition: left 0.3s;
+    box-shadow: 2px 0 10px rgba(44,62,80,0.08);
+  }
+  #sidebar.open {
+    left: 0;
+  }
+  .sidebar-toggle {
+    display: block;
+  }
+  #main-content, .container {
+    margin-left: 0 !important;
+  }
+  body.sidebar-open {
+    overflow: hidden;
+  }
+  /* Optional: overlay saat sidebar terbuka */
+  #sidebar-overlay {
+    display: block;
+    position: fixed;
+    z-index: 1099;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.2);
+  }
+  #sidebar-overlay.hide {
+    display: none;
+  }
+}
