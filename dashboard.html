@@ -11,9 +11,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
+<button id="sidebar-toggle" class="sidebar-toggle">&#9776;</button>
 <div class="dashboard-container">
-    <button id="sidebar-toggle" class="sidebar-toggle">&#9776;</button>
     <aside id="sidebar">
         <div class="sidebar-header">
             <h3>Sistem Pakar KB</h3>
@@ -102,20 +101,13 @@
         </div>
     </div>
 </div>
+<div id="sidebar-overlay" class="hide"></div>
 <script src="scripit.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const sidebar = document.getElementById('sidebar');
   const toggleBtn = document.getElementById('sidebar-toggle');
-
-  // Buat overlay jika belum ada
-  let overlay = document.getElementById('sidebar-overlay');
-  if (!overlay) {
-    overlay = document.createElement('div');
-    overlay.id = 'sidebar-overlay';
-    overlay.className = 'hide';
-    document.body.appendChild(overlay);
-  }
+  const overlay = document.getElementById('sidebar-overlay');
 
   function openSidebar() {
     sidebar.classList.add('open');

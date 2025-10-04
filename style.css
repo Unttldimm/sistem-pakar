@@ -398,12 +398,15 @@ td:not(:first-child) {
   box-shadow: var(--shadow);
 }
 
-/* Sidebar responsif */
 @media (max-width: 900px) {
+  .sidebar-toggle {
+    display: block;
+  }
   #sidebar {
     position: fixed;
     left: -260px;
     top: 0;
+    width: 240px;
     height: 100vh;
     z-index: 1100;
     transition: left 0.3s;
@@ -412,16 +415,12 @@ td:not(:first-child) {
   #sidebar.open {
     left: 0;
   }
-  .sidebar-toggle {
-    display: block;
-  }
-  #main-content, .container {
+  #main-content, .dashboard-container {
     margin-left: 0 !important;
   }
   body.sidebar-open {
     overflow: hidden;
   }
-  /* Optional: overlay saat sidebar terbuka */
   #sidebar-overlay {
     display: block;
     position: fixed;
