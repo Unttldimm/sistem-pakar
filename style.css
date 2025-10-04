@@ -64,6 +64,52 @@ html, body {
     padding: 1rem 0;
 }
 
+.sidebar {
+    background: #223046;
+    color: #fff;
+    width: 80vw;
+    max-width: 320px;
+    min-height: 100vh;
+    padding: 24px 0 0 0;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.05);
+}
+
+.sidebar h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 32px;
+    text-align: left;
+    padding-left: 24px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0 0 0 24px;
+    margin: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 16px;
+    font-size: 1rem;
+    text-align: left;
+}
+
+.sidebar ul li.active,
+.sidebar ul li.selected {
+    background: #3baaf7;
+    color: #fff;
+    border-radius: 8px;
+    padding: 10px 16px;
+}
+
+.sidebar ul li:not(.active):hover {
+    background: #2d425e;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #fff;
+    padding: 10px 16px;
+}
+
 .sidebar-header {
     padding: 1.5rem;
     text-align: center;
