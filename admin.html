@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Sistem Pakar</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="hero">
+            <h1>Admin Dashboard</h1>
+            <p class="subtitle">Analitik Penggunaan dan Manajemen Sistem</p>
+        </header>
+
+        <main class="admin-panel">
+            <section class="dashboard-section">
+                <h2>Analitik Penggunaan</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h4>Total Konsultasi</h4>
+                        <p id="total-consultations">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Rekomendasi Terpopuler</h4>
+                        <p id="top-recommendation-popular">-</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Tingkat Kepuasan</h4>
+                        <p id="feedback-summary">-</p>
+                    </div>
+                </div>
+
+                <div class="chart-container-admin">
+                    <h3>Kondisi Paling Sering Dipilih</h3>
+                    <div id="top-factors-chart"></div>
+                </div>
+            </section>
+
+            <section class="dashboard-section">
+                <h2>Manajemen Basis Pengetahuan (Read-Only Demo)</h2>
+                <p class="disclaimer">Fitur edit, tambah, dan hapus memerlukan database. Ini adalah tampilan data yang ada saat ini.</p>
+                
+                <h3>Daftar Alat Kontrasepsi</h3>
+                <div class="table-container">
+                    <table id="tools-table">
+                        </table>
+                </div>
+                <button class="admin-button" onclick="showManagementNotice()">Tambah / Edit Data</button>
+            </section>
+
+             <section class="dashboard-section">
+                <h2>Riwayat Konsultasi Terakhir</h2>
+                 <div class="table-container" id="history-log">
+                    </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="scripit.js"></script> <script src="admin.js"></script>
+</body>
+</html>

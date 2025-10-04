@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Login Sistem Pakar</title>
+ <link rel="stylesheet" href="style.css">
+ <style>
+   /* ... CSS tidak berubah ... */
+ </style>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="login-box">
+ <h2>Login</h2>
+ <form id="loginForm">
+   <div class="form-group">
+     <label for="email">Email:</label>
+     <input type="email" id="email" required value="admin@example.com">
+   </div>
+   <div class="form-group">
+     <label for="password">Password:</label>
+     <input type="password" id="password" required value="12345">
+   </div>
+   <button type="submit">Masuk</button>
+   <div id="error-msg" class="error"></div>
+ </form>
+</div>
+
+<script>
+ const users = [
+   { email: "admin@example.com", password: "12345" },
+   { email: "user@example.com", password: "password" }
+ ];
+
+ const form = document.getElementById("loginForm");
+ form.addEventListener("submit", function(e) {
+   e.preventDefault();
+   const email = document.getElementById("email").value.trim();
+   const password = document.getElementById("password").value.trim();
+   const user = users.find(u => u.email === email && u.password === password);
+
+   if (user) {
+     localStorage.setItem("loggedInUser", JSON.stringify(user));
+     // --- PERUBAHAN DI SINI ---
+     window.location.href = "dashboard.html"; // Arahkan ke dashboard.html
+   } else {
+     document.getElementById("error-msg").textContent = "Email atau password salah!";
+   }
+ });
+</script>
+</body>
+</html>

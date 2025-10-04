@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Sistem Pakar</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="dashboard-container">
+    <aside id="sidebar">
+        <div class="sidebar-header">
+            <h3>Sistem Pakar KB</h3>
+        </div>
+        <ul class="sidebar-nav">
+            <li><a href="#" id="nav-data-diri" onclick="showPanel('data-diri')" class="active">1. Data Diri</a></li>
+            <li><a href="#" id="nav-kuesioner" onclick="showPanel('kuesioner')">2. Kuesioner</a></li>
+            <li><a href="#" id="nav-rekomendasi" onclick="showPanel('rekomendasi')">3. Rekomendasi</a></li>
+        </ul>
+    </aside>
+
+    <main id="main-content">
+        
+        <div id="data-diri-panel" class="panel active">
+            <header class="hero"><h1>Langkah 1: Isi Data Diri Anda</h1></header>
+            <div class="panel-content">
+                <div class="form-group"><label for="nama">Nama Lengkap</label><input type="text" id="nama" placeholder="Masukkan nama Anda" required></div>
+                <div class="form-group"><label for="umur">Umur</label><input type="number" id="umur" placeholder="Contoh: 25" min="15" max="60" required></div>
+                <div class="form-group"><label for="status">Status Perkawinan</label><select id="status"><option value="">-- Pilih --</option><option>Belum Menikah</option><option>Menikah</option><option>Cerai</option></select></div>
+                <div class="form-group"><label for="anak">Jumlah Anak</label><input type="number" id="anak" placeholder="Contoh: 2" min="0" max="10"></div>
+                <button type="button" class="btn-start" onclick="startConsultation()">Lanjut ke Kuesioner →</button>
+            </div>
+        </div>
+
+        <div id="kuesioner-panel" class="panel">
+            <header class="hero"><h1>Langkah 2: Jawab Kuesioner</h1><p class="subtitle">Pilih tingkat keyakinan (0-1) untuk setiap kondisi.</p></header>
+            <div class="panel-content">
+                <form id="expert-form"><div id="questions-container"></div></form>
+                <button type="button" onclick="calculateResult()">Lihat Rekomendasi Saya</button>
+            </div>
+        </div>
+
+        <div id="rekomendasi-panel" class="panel">
+            <header class="hero"><h1>Hasil Rekomendasi Anda</h1></header>
+            <div id="result-container" class="panel-content">
+                
+                <div id="user-input-summary" class="summary-box"></div>
+
+                <div id="dashboard-filters">
+                    <h3>Filter Hasil</h3>
+                    <div class="filter-controls">
+                        <div class="form-group">
+                            <label for="term-filter">Jangka Waktu</label>
+                            <select id="term-filter" onchange="applyFilters()">
+                                <option value="all">Semua</option>
+                                <option value="Jangka Pendek">Jangka Pendek</option>
+                                <option value="Jangka Panjang">Jangka Panjang</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="type-filter">Tipe</label>
+                            <select id="type-filter" onchange="applyFilters()">
+                                <option value="all">Semua</option>
+                                <option value="Hormonal">Hormonal</option>
+                                <option value="Non-Hormonal">Non-Hormonal</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button class="compare-button" onclick="showComparison()">Bandingkan Pilihan (Pilih 2-3)</button>
+                    <div id="feedback-section">
+                        <span>Apakah rekomendasi ini membantu?</span>
+                        <button class="feedback-btn" onclick="giveFeedback(true)">👍</button>
+                        <button class="feedback-btn" onclick="giveFeedback(false)">👎</button>
+                    </div>
+                </div>
+                <div id="results">
+                    <div id="top-recommendation-container"><h3>Rekomendasi Utama</h3><div id="top-recommendation"></div></div>
+                    <div id="chart-container"><h3>Perbandingan Skor</h3><div id="chart"></div></div>
+                    <div id="other-recommendations-container"><h3>Pilihan Lainnya</h3><div id="other-recommendations"></div></div>
+                </div>
+                <p class="disclaimer"><strong>Penting:</strong> Selalu konsultasikan dengan dokter atau bidan Anda untuk keputusan akhir.</p>
+            </div>
+        </div>
+    </main>
+</div>
+
+<div id="comparison-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-button" onclick="closeComparison()">&times;</span>
+        <h2>Tabel Perbandingan</h2>
+        <div class="table-container">
+            <table>
+                <thead id="comparison-table-head"></thead>
+                <tbody id="comparison-table-body"></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="scripit.js"></script>
+</body>
+</html>
