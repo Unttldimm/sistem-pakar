@@ -106,8 +106,17 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const sidebar = document.getElementById('sidebar');
-  const toggleBtn = document.getElementById('sidebar-toggle');
-  const overlay = document.getElementById('sidebar-overlay');
+  const toggle = document.querySelector('.sidebar-toggle');
+  const overlayId = 'sidebar-overlay';
+
+  // Buat overlay jika belum ada
+  let overlay = document.getElementById(overlayId);
+  if (!overlay) {
+    overlay = document.createElement('div');
+    overlay.id = overlayId;
+    overlay.className = 'hide';
+    document.body.appendChild(overlay);
+  }
 
   function openSidebar() {
     sidebar.classList.add('open');
@@ -120,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.body.classList.remove('sidebar-open');
   }
 
-  toggleBtn.addEventListener('click', function() {
+  toggle.addEventListener('click', function() {
     if (sidebar.classList.contains('open')) {
       closeSidebar();
     } else {
