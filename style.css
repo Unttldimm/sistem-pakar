@@ -89,25 +89,28 @@ html, body {
 }
 
 .sidebar ul li {
-    margin-bottom: 16px;
-    font-size: 1rem;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
     text-align: left;
+    padding: 0; /* Hilangkan padding default */
 }
 
 .sidebar ul li.active,
 .sidebar ul li.selected {
     background: #3baaf7;
     color: #fff;
-    border-radius: 8px;
-    padding: 10px 16px;
+    border-radius: 6px;
+    padding: 7px 12px; /* Diperkecil */
+    font-size: 0.97rem; /* Sedikit lebih kecil */
 }
 
 .sidebar ul li:not(.active):hover {
     background: #2d425e;
-    border-radius: 8px;
+    border-radius: 6px;
     cursor: pointer;
     color: #fff;
-    padding: 10px 16px;
+    padding: 7px 12px; /* Diperkecil */
+    font-size: 0.97rem;
 }
 
 .sidebar-header {
@@ -431,17 +434,22 @@ td:not(:first-child) {
 .sidebar-toggle {
   display: none;
   position: fixed;
-  top: 18px;
-  left: 18px;
+  top: 16px;
+  left: 16px;
   z-index: 1200;
   background: var(--primary-color);
   color: #fff;
   border: none;
-  border-radius: 6px;
-  padding: 10px 14px;
+  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
   font-size: 1.5rem;
   cursor: pointer;
   box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (max-width: 900px) {
