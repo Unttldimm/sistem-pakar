@@ -334,3 +334,49 @@ tbody tr:nth-child(even) {
 td:not(:first-child) {
     text-align: center;
 }
+
+/* Tambahkan di akhir style.css */
+@media (max-width: 900px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .chart-container-admin {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 8px;
+  }
+  header.hero h1 {
+    font-size: 1.5rem;
+  }
+  .admin-panel {
+    padding: 0;
+  }
+  .dashboard-section {
+    margin-bottom: 24px;
+    padding: 10px 0;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .stat-card {
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+  .table-container {
+    overflow-x: auto;
+  }
+  table {
+    font-size: 0.95rem;
+    min-width: 400px;
+  }
+  .admin-button {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
